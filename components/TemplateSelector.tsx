@@ -1,0 +1,86 @@
+// app/components/TemplateSelector.tsx
+"use client";
+
+import {
+  LayoutTemplate,
+  FileText,
+  Layers,
+  Newspaper,
+  User,
+  Terminal,
+} from "lucide-react";
+
+interface TemplateSelectorProps {
+  currentTemplate: number;
+  onSelect: (templateId: number) => void;
+}
+
+const templates = [
+  {
+    id: 0,
+    name: "Classic",
+    icon: LayoutTemplate,
+    description: "Traditional two-column layout",
+  },
+  {
+    id: 1,
+    name: "Modern",
+    icon: Layers,
+    description: "Bold colors with sidebar",
+  },
+  {
+    id: 2,
+    name: "Minimal",
+    icon: FileText,
+    description: "Clean and simple design",
+  },
+  {
+    id: 3,
+    name: "Creative",
+    icon: Newspaper,
+    description: "Magazine-style layout",
+  },
+  {
+    id: 4,
+    name: "Executive",
+    icon: User,
+    description: "Professional leadership focus",
+  },
+  {
+    id: 5,
+    name: "Tech",
+    icon: Terminal,
+    description: "Developer-focused with skills grid",
+  },
+];
+
+export default function TemplateSelector({
+  currentTemplate,
+  onSelect,
+}: TemplateSelectorProps) {
+  return (
+    <div className="fixed top-4 right-4 z-50 bg-white rounded-lg shadow-lg border border-gray-200 p-2">
+      <div className="flex gap-2">
+        {templates.map((template) => {
+          const Icon = template.icon;
+          const isActive = currentTemplate === template.id;
+          return (
+            <button
+              key={template.id}
+              onClick={() => onSelect(template.id)}
+              className={`flex flex-col items-center px-3 py-2 rounded-lg transition-all ${
+                isActive
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-gray-50 text-gray-600 hover:bg-gray-100"
+              }`}
+              title={template.name}
+            >
+              <Icon size={20} />
+              <span className="text-xs mt-1 font-medium">{template.name}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
