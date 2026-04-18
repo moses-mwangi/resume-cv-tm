@@ -80,10 +80,7 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
           )}
         </div>
 
-        <div
-          className="border-t border-b py-3 my-3"
-          // style={{ borderColor: `${primaryColor}20` }}
-        >
+        <div className="border-t border-b py-3 my-3">
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
             {personal.email && (
               <div className="flex items-center gap-2">
@@ -115,7 +112,7 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
               <LiaLinkedin style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
               <a
                 // href={personal.linkedin}
-                href={"/"}
+                href={"https://www.linkedin.com/moses-mwangi-tm"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-violet-500"
@@ -127,7 +124,7 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
             <div className="flex items-center gap-2">
               <BsGithub style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
               <a
-                href={""}
+                href={"https://github.com/moses-mwangi"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-violet-500"
