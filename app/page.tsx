@@ -1,47 +1,88 @@
-// app/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { defaultResumeData } from "./types";
-import TemplateSelector from "@/components/TemplateSelector";
-import TemplateClassic from "@/components/Template0_Classic";
-import TemplateModern from "@/components/Template1_Modern";
-import TemplateMinimal from "@/components/Template2_Minimal";
-import TemplateCreative from "@/components/Template3_Creative";
-import TemplateExecutive from "@/components/Template4_Executive";
-import TemplateTech from "@/components/Template5_Tech";
+import TemplateSelector from "@/components/template/TemplateSelector";
+import TemplateClassic from "@/components/template/Template0_Classic";
+import TemplateModern from "@/components/template/Template1_Modern";
+import TemplateMinimal from "@/components/template/Template2_Minimal";
+import TemplateCreative from "@/components/template/Template3_Creative";
+import TemplateExecutive from "@/components/template/Template4_Executive";
+import TemplateTech from "@/components/template/Template5_Tech";
+import Template6_PdfStyle from "@/components/template/Template6_PdfStyle";
+import { useReactToPrint } from "react-to-print";
+import FontSelector, {
+  allFonts,
+  FontKey,
+} from "@/components/template/FontSelector";
 
 export default function Home() {
   const [activeTemplate, setActiveTemplate] = useState(0);
   const [resumeData] = useState(defaultResumeData);
+  const printRef = useRef<HTMLDivElement>(null);
+
+  const [currentFont, setCurrentFont] = useState<FontKey>("Arial");
+
+  function getFont(key: FontKey) {
+    if (key === "Inter") {
+      return {
+        family: "system-ui, -apple-system, sans-serif",
+        category: "System Default",
+      };
+    }
+    return allFonts[key];
+  }
+
+  const handlePrint = useReactToPrint({
+    contentRef: printRef,
+  });
 
   const renderTemplate = () => {
     switch (activeTemplate) {
       case 0:
-        return <TemplateClassic data={resumeData} />;
+        return <Template6_PdfStyle data={resumeData} />;
       case 1:
-        return <TemplateModern data={resumeData} />;
-      case 2:
-        return <TemplateMinimal data={resumeData} />;
-      case 3:
-        return <TemplateCreative data={resumeData} />;
-      case 4:
-        return <TemplateExecutive data={resumeData} />;
-      case 5:
-        return <TemplateTech data={resumeData} />;
-      default:
         return <TemplateClassic data={resumeData} />;
+      // case 2:
+      //   return <TemplateModern data={resumeData} />;
+      // case 3:
+      //   return <TemplateMinimal data={resumeData} />;
+      // case 4:
+      //   return <TemplateCreative data={resumeData} />;
+      // case 5:
+      //   return <TemplateExecutive data={resumeData} />;
+      // default:
+      //   return <TemplateTech data={resumeData} />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-      <TemplateSelector
-        currentTemplate={activeTemplate}
-        onSelect={setActiveTemplate}
-      />
-      <div className="transition-all duration-300 ease-in-out">
-        {renderTemplate()}
+    <div className=" bg-gray-100 ">
+      <div className="min-h-screen my-8 bg-gray-100 max-w-[980px] mx-auto mb-4 flex justify-between items-center ">
+        {/* // <div className="max-w-4xl mx-auto mb-4 flex justify-between items-center no-print"> */}
+        <div className="">
+          <TemplateSelector
+            currentTemplate={activeTemplate}
+            onSelect={setActiveTemplate}
+          />
+        </div>
+
+        <FontSelector
+          currentFont={currentFont}
+          setCurrentFont={setCurrentFont}
+          getFont={getFont}
+        />
+
+        {/* Resume Preview */}
+        <div
+          ref={printRef}
+          style={{
+            fontFamily: getFont(currentFont).family,
+          }}
+          className="transition-all  duration-300 ease-in-out"
+        >
+          {renderTemplate()}
+        </div>
       </div>
     </div>
   );

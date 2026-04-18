@@ -1,4 +1,3 @@
-// app/components/TemplateSelector.tsx
 "use client";
 
 import {
@@ -52,6 +51,12 @@ const templates = [
     icon: Terminal,
     description: "Developer-focused with skills grid",
   },
+  {
+    id: 6,
+    name: "Prefer",
+    icon: Terminal,
+    description: "Developer-focused with skills grid",
+  },
 ];
 
 export default function TemplateSelector({
@@ -59,8 +64,8 @@ export default function TemplateSelector({
   onSelect,
 }: TemplateSelectorProps) {
   return (
-    <div className="fixed top-4 right-4 z-50 bg-white rounded-lg shadow-lg border border-gray-200 p-2">
-      <div className="flex gap-2">
+    <div className="fixed top-7 right-4 z-50 bg-white rounded-lg shadow-lg border border-gray-200 p-2">
+      <div className="flex flex-col gap-2">
         {templates.map((template) => {
           const Icon = template.icon;
           const isActive = currentTemplate === template.id;
@@ -68,7 +73,7 @@ export default function TemplateSelector({
             <button
               key={template.id}
               onClick={() => onSelect(template.id)}
-              className={`flex flex-col items-center px-3 py-2 rounded-lg transition-all ${
+              className={`flex flex-col items-center px-3 cursor-pointer py-2 rounded-lg transition-all ${
                 isActive
                   ? "bg-blue-600 text-white shadow-md"
                   : "bg-gray-50 text-gray-600 hover:bg-gray-100"

@@ -9,7 +9,7 @@ import {
   Globe,
   Target,
 } from "lucide-react";
-import { ResumeData } from "../app/types";
+import { ResumeData } from "../../app/types";
 
 export default function TemplateExecutive({ data }: { data: ResumeData }) {
   return (

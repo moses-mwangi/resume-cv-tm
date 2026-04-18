@@ -13,36 +13,41 @@ import {
   Briefcase as Linkedin,
   Briefcase as Twitter,
 } from "lucide-react";
-import { ResumeData } from "../app/types";
+import { ResumeData } from "../../app/types";
+import { RefObject } from "react";
 
 export default function TemplateClassic({ data }: { data: ResumeData }) {
   return (
     <div className="max-w-5xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-700 to-indigo-800 px-8 py-12 text-white">
+      <div className="bg-gradient-to-r from-blue-700 to-indigo-800 px-8 py-8 text-white">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-          <div className="w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white shadow-lg">
-            <span className="text-5xl font-bold">
+          <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white shadow-lg">
+            <span className="text-xl font-bold">
               {data.personal.firstName[0]}
               {data.personal.lastName[0]}
             </span>
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+            <h1 className="text-xl md:text-3xl font-bold">
               {data.personal.firstName} {data.personal.lastName}
             </h1>
-            <p className="text-xl text-blue-100 mb-4">{data.personal.title}</p>
-            <p className="text-blue-50 max-w-2xl">{data.personal.bio}</p>
+            <p className="text-lg font-semibold text-blue-100 ">
+              {data.personal.title}
+            </p>
+            <p className="text-blue-50 text-[15px] max-w-2xl">
+              {data.personal.bio}
+            </p>
           </div>
         </div>
       </div>
       <div className="bg-gray-50 border-b border-gray-200 px-8 py-4 grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
         <div className="flex items-center gap-2 text-gray-600">
-          <Phone size={16} />
-          <span>{data.personal.phone}</span>
-        </div>
-        <div className="flex items-center gap-2 text-gray-600">
           <Mail size={16} />
           <span>{data.personal.email}</span>
+        </div>
+        <div className="flex items-center gap-2 text-gray-600">
+          <Phone size={16} />
+          <span>{data.personal.phone}</span>
         </div>
         <div className="flex items-center gap-2 text-gray-600">
           <MapPin size={16} />

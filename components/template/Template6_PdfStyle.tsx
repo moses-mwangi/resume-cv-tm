@@ -1,0 +1,292 @@
+// components/templates/Template6_PdfStyle.tsx
+import React, { RefObject } from "react";
+import { ResumeData } from "@/app/types";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+  // Linkedin,
+  // Github,
+  Briefcase,
+  Calendar,
+} from "lucide-react";
+import { LiaLinkedin } from "react-icons/lia";
+import { BsGithub } from "react-icons/bs";
+import { Separator } from "../ui/separator";
+import ProjectsPreview from "./ProjectsPreview";
+
+interface Template6_PdfStyleProps {
+  data: ResumeData;
+  // ref: RefObject<HTMLDivElement | null>;
+}
+
+const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
+  data,
+  // ref,
+}) => {
+  const { personal, experience, education, skills, languages, certifications } =
+    data;
+
+  // Helper to format date range if needed
+  const formatDate = (start: string, end: string, current?: boolean) => {
+    if (current) return `${start} - Present`;
+    return `${start} - ${end}`;
+  };
+
+  // Group skills by category as shown in the PDF
+  const skillCategories = [
+    { title: "Frontend", skills: ["React", "NextJs", "Vue", "React Native"] },
+    {
+      title: "Backend",
+      skills: ["NodeJs", "Express", "REST APIs", "Microservices"],
+    },
+    {
+      title: "Databases",
+      skills: ["MongoDB", "Firebase", "SQL", "PostgreSQL"],
+    },
+    {
+      title: "Cloud & DevOps",
+      skills: ["AWS", "Cloud Deployment", "Git", "CI/CD"],
+    },
+    {
+      title: "Programming Language",
+      skills: ["Python", "JavaScript", "TypeScript"],
+    },
+    { title: "Tools & Technologies", skills: ["Docker", "GitHub", "Postman"] },
+  ];
+
+  const templates = {
+    name: "Creative",
+    primaryColor: "#8b5cf6",
+    font: "Plus Jakarta Sans",
+    spacing: "relaxed",
+    layout: "bold",
+    preview: "bg-gradient-to-br from-purple-600 to-pink-600",
+  };
+
+  return (
+    <div className=" mx-auto bg-white shadow-xl py-6 font-sans">
+      {/* Header with date range */}
+      <div className=" py-4 px-6 text-right text-sm text-gray-500">
+        <div className="text-center">
+          <h1 style={{ color: "#8b5cf6" }} className="text-4xl font-bold mb-3 ">
+            {`${personal.firstName} ${personal.lastName}` || "Your Name"}
+          </h1>
+
+          {personal.title && (
+            <p className="text-md text-gray-500 mb-4">{personal.title}</p>
+          )}
+        </div>
+
+        <div
+          className="border-t border-b py-3 my-3"
+          // style={{ borderColor: `${primaryColor}20` }}
+        >
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
+            {personal.email && (
+              <div className="flex items-center gap-2">
+                <Mail style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="text-gray-600 hover:"
+                >
+                  {personal.email}
+                </a>
+              </div>
+            )}
+            {personal.phone && (
+              <div className="flex items-center gap-2">
+                <Phone style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
+                <a href={`tel:${personal.phone}`} className="text-gray-600">
+                  {personal.phone}
+                </a>
+              </div>
+            )}
+            {personal.location && (
+              <div className="flex items-center gap-2">
+                <MapPin style={{ color: "#8b5cf6" }} className="w-4 h-4" />
+                <span className="text-gray-600">{personal.location}</span>
+              </div>
+            )}
+            {/* {personal.linkedin && ( */}
+            <div className="flex items-center gap-2">
+              <LiaLinkedin style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
+              <a
+                // href={personal.linkedin}
+                href={"/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-violet-500"
+              >
+                LinkedIn
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <BsGithub style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
+              <a
+                href={""}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-violet-500"
+              >
+                GitHub
+              </a>
+            </div>
+            {/* )} */}
+          </div>
+        </div>
+      </div>
+
+      <div className="p-8">
+        {/* Professional Summary */}
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold tracking-wide pb-1">
+            Professional Summary
+          </h2>
+          <Separator className="mb-3" />
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <span className="text-violet-600 underline">Software Engineer</span>{" "}
+            with a strong foundation in building scalable applications and a
+            growing specialization in AI and agentic systems. Experienced in
+            designing intelligent solutions that leverage machine learning,
+            automation, and modern software architectures. Passionate about
+            developing efficient, user-focused systems and exploring emerging
+            technologies in artificial intelligence to solve real-world
+            problems.
+            {/* {personal?.summary} */}
+          </p>
+        </section>
+
+        {/* Work Experience */}
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold  tracking-wide pb-1">
+            Work Experience
+          </h2>
+          <Separator className="mb-3" />
+          {experience &&
+            experience.map((exp, idx) => (
+              <div key={idx} className="mb-5">
+                <div className="flex justify-between items-baseline flex-wrap">
+                  <h3
+                    style={{ color: "#8b5cf6" }}
+                    className="text-md font-semibold "
+                  >
+                    {exp.title}
+                  </h3>
+                  <span className="text-xs text-gray-500">
+                    {/* {formatDate(exp.startDate, exp.endDate, exp.current)} */}
+                    {formatDate(exp.startDate, exp.endDate)}
+                  </span>
+                </div>
+                <p className="text-sm text-gray-600 mb-1">
+                  {exp.company} - {exp.location}
+                </p>
+                <ul className="list-disc pl-5 text-sm space-y-1">
+                  {exp.achievements?.slice(0, 4).map((resp, i) => (
+                    <li key={i}>{resp}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+        </section>
+
+        {/* Education */}
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold tracking-wide pb-1 ">
+            Education
+          </h2>
+          <div className="flex flex-col gap-4">
+            {education &&
+              education.map((edu, idx) => (
+                <div key={idx}>
+                  <div className="flex gap-2 justify-between items-baseline flex-wrap">
+                    <h3
+                      style={{ color: "#8b5cf6" }}
+                      className="text-md font-semibold"
+                    >
+                      {edu.institution}
+                    </h3>
+                    <span className="text-sm text-gray-500">
+                      {edu.startDate} - {edu.endDate}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600">{edu.degree}</p>
+                  {/* {edu.gpa && (
+                    <p className="text-sm text-gray-500">GPA: {edu.}</p>
+                  )} */}
+                </div>
+              ))}
+          </div>
+        </section>
+
+        <ProjectsPreview data={data.projects} />
+
+        {/* Technical Skills - styled like the PDF grid */}
+        <section className="mb-6">
+          <h2 className="text-lg font-semibold  tracking-wide pb-1">
+            Technical Skills
+          </h2>
+          <Separator className="mb-3" />
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            {skillCategories.map((cat, idx) => (
+              <div key={idx} className="flex">
+                <span className="font-semibold w-28">{cat.title}:</span>
+                <span className="text-gray-700">{cat.skills.join(", ")}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          {certifications.length > 0 && (
+            <div className="mb-6">
+              <h2
+                className="text-lg font-semibold pb-1"
+                // style={{ borderColor: style.secondaryColor }}
+              >
+                Certifications
+              </h2>
+              <Separator className="h-px mb-4" />
+
+              <div className="space-y-2">
+                {certifications.map((cert, id) => (
+                  <div key={id} className="flex justify-between items-start">
+                    <div>
+                      <p className="font-medium text-blue-600">{cert.name}</p>
+                      <p className="text-sm text-gray-600">{cert.issuer}</p>
+                    </div>
+                    <div className="text-right text-sm text-gray-500">
+                      {cert.date}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Languages */}
+        <section>
+          <h2 className="text-lg font-semibold tracking-wide pb-1">
+            Languages
+          </h2>
+          <Separator className="h-px mb-4" />
+
+          <div className="flex gap-6 text-sm">
+            {languages &&
+              languages.map((lang, idx) => (
+                <p key={idx}>
+                  <strong>{lang.name}</strong>{" "}
+                  <span className="text-gray-500">(Fluent)</span>
+                </p>
+              ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Template6_PdfStyle;

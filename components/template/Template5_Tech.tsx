@@ -11,7 +11,7 @@ import {
   Cpu,
   Database,
 } from "lucide-react";
-import { ResumeData } from "../app/types";
+import { ResumeData } from "../../app/types";
 
 export default function TemplateTech({ data }: { data: ResumeData }) {
   const techSkills = data.skills;
