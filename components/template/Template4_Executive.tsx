@@ -89,10 +89,10 @@ export default function TemplateExecutive({ data }: { data: ResumeData }) {
               <div className="space-y-2">
                 {data.skills.map((skill) => (
                   <div
-                    key={skill}
+                    key={skill.id}
                     className="flex justify-between items-center"
                   >
-                    <span className="text-gray-700 text-sm">{skill}</span>
+                    <span className="text-gray-700 text-sm">{skill.name}</span>
                     <div className="w-24 bg-gray-200 rounded-full h-1.5">
                       <div
                         className="bg-gray-800 h-1.5 rounded-full"

@@ -16,7 +16,7 @@ export interface ResumeData {
     linkedin: string;
     twitter: string;
   };
-  skills: string[];
+  skills: Skill[];
   languages: { name: string; level: string; percentage: number }[];
   experience: {
     title: string;
@@ -36,6 +36,14 @@ export interface ResumeData {
   }[];
   certifications: { name: string; issuer: string; date: string }[];
   projects: Project[];
+}
+
+export interface Skill {
+  id: string;
+  name: string;
+  category: string;
+  level: number; // 1-5
+  // level: "Beginner" | "Intermediate" | "Advanced" | "Expert";
 }
 
 export interface Project {
@@ -67,16 +75,65 @@ export const defaultResumeData: ResumeData = {
     // linkedins: "linkedin.com/in/moses-mwangi-tm",
     twitter: "twitter.com/johnd",
   },
+  // skills: [
+  //   {
+  //     id: "1",
+  //     name: "React",
+  //     category: "Frontend",
+  //     level: 3,
+  //   },
+
+  //   // "Next.js",
+  //   // "TypeScript",
+  //   // "Node.js",
+  //   // "Python",
+  //   // "Tailwind",
+  //   // "PostgreSQL",
+  //   // "Docker",
+  //   // "AWS",
+  // ],
   skills: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "Python",
-    "Tailwind",
-    "PostgreSQL",
-    "Docker",
-    "AWS",
+    // Frontend
+    { id: "1", name: "React", category: "Frontend", level: 5 },
+    { id: "2", name: "Next.js", category: "Frontend", level: 5 },
+    { id: "3", name: "TypeScript", category: "Frontend", level: 4 },
+    { id: "4", name: "Tailwind CSS", category: "Frontend", level: 5 },
+    { id: "5", name: "HTML", category: "Frontend", level: 5 },
+    { id: "6", name: "CSS", category: "Frontend", level: 5 },
+
+    // Backend
+    { id: "7", name: "Node.js", category: "Backend", level: 5 },
+    { id: "8", name: "Express.js", category: "Backend", level: 4 },
+    { id: "9", name: "REST APIs", category: "Backend", level: 5 },
+
+    // Programming Languages
+    {
+      id: "10",
+      name: "JavaScript",
+      category: "Programming Languages",
+      level: 5,
+    },
+    {
+      id: "11",
+      name: "TypeScript",
+      category: "Programming Languages",
+      level: 4,
+    },
+    { id: "12", name: "Python", category: "Programming Languages", level: 4 },
+
+    // Database
+    { id: "13", name: "MongoDB", category: "Database", level: 5 },
+    { id: "14", name: "PostgreSQL", category: "Database", level: 4 },
+
+    // DevOps & Cloud
+    { id: "15", name: "Docker", category: "DevOps & Cloud", level: 4 },
+    { id: "16", name: "AWS", category: "DevOps & Cloud", level: 4 },
+    { id: "17", name: "Vercel", category: "DevOps & Cloud", level: 5 },
+
+    // Tools & Platforms
+    { id: "18", name: "Git", category: "Tools & Platforms", level: 5 },
+    { id: "19", name: "GitHub", category: "Tools & Platforms", level: 5 },
+    { id: "20", name: "Figma", category: "Tools & Platforms", level: 3 },
   ],
   languages: [
     { name: "English", level: "Native", percentage: 100 },

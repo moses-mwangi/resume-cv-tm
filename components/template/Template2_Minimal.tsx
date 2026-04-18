@@ -78,10 +78,10 @@ export default function TemplateMinimal({ data }: { data: ResumeData }) {
             <div className="flex flex-wrap gap-2">
               {data.skills.map((skill) => (
                 <span
-                  key={skill}
+                  key={skill.name}
                   className="text-gray-600 text-sm bg-gray-50 px-3 py-1"
                 >
-                  {skill}
+                  {skill.name}
                 </span>
               ))}
             </div>

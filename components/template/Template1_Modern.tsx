@@ -230,7 +230,9 @@ export default function TemplateModern({ data }: { data: ResumeData }) {
               {data.skills.map((skill, idx) => (
                 <div key={idx}>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="font-medium text-gray-700">{skill}</span>
+                    <span className="font-medium text-gray-700">
+                      {skill.name}
+                    </span>
                     <span className="text-emerald-600">Advanced</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">

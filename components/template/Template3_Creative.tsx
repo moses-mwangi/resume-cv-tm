@@ -71,10 +71,10 @@ export default function TemplateCreative({ data }: { data: ResumeData }) {
               <div className="flex flex-wrap gap-2">
                 {data.skills.slice(0, 6).map((skill) => (
                   <span
-                    key={skill}
+                    key={skill.name}
                     className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
                   >
-                    {skill}
+                    {skill.name}
                   </span>
                 ))}
               </div>

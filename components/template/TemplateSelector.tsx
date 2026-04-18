@@ -14,7 +14,7 @@ interface TemplateSelectorProps {
   onSelect: (templateId: number) => void;
 }
 
-const templates = [
+export const templates = [
   {
     id: 0,
     name: "Classic",
@@ -64,8 +64,8 @@ export default function TemplateSelector({
   onSelect,
 }: TemplateSelectorProps) {
   return (
-    <div className="fixed top-7 right-4 z-50 bg-white rounded-lg shadow-lg border border-gray-200 p-2">
-      <div className="flex flex-col gap-2">
+    <div className="fixed top-7 right-4 z-50 max-h-[80vh] h-full bg-white rounded-lg shadow-lg border border-gray-200 p-2">
+      <div className="flex flex-col gap-3">
         {templates.map((template) => {
           const Icon = template.icon;
           const isActive = currentTemplate === template.id;
@@ -73,14 +73,14 @@ export default function TemplateSelector({
             <button
               key={template.id}
               onClick={() => onSelect(template.id)}
-              className={`flex flex-col items-center px-3 cursor-pointer py-2 rounded-lg transition-all ${
+              className={`flex gap-2 items-center px-3 cursor-pointer py-2 rounded-md transition-all ${
                 isActive
                   ? "bg-blue-600 text-white shadow-md"
                   : "bg-gray-50 text-gray-600 hover:bg-gray-100"
               }`}
               title={template.name}
             >
-              <Icon size={20} />
+              <Icon size={17} />
               <span className="text-xs mt-1 font-medium">{template.name}</span>
             </button>
           );

@@ -15,6 +15,7 @@ import { LiaLinkedin } from "react-icons/lia";
 import { BsGithub } from "react-icons/bs";
 import { Separator } from "../ui/separator";
 import ProjectsPreview from "./ProjectsPreview";
+import SkillsPreview from "@/app/SkillsPreview";
 
 interface Template6_PdfStyleProps {
   data: ResumeData;
@@ -223,31 +224,12 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
 
         <ProjectsPreview data={data.projects} />
 
-        {/* Technical Skills - styled like the PDF grid */}
-        <section className="mb-6">
-          <h2 className="text-lg font-semibold  tracking-wide pb-1">
-            Technical Skills
-          </h2>
-          <Separator className="mb-3" />
-          <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
-            {skillCategories.map((cat, idx) => (
-              <div key={idx} className="flex">
-                <span className="font-semibold w-28">{cat.title}:</span>
-                <span className="text-gray-700">{cat.skills.join(", ")}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <SkillsPreview data={data.skills} />
 
         <section>
           {certifications.length > 0 && (
             <div className="mb-6">
-              <h2
-                className="text-lg font-semibold pb-1"
-                // style={{ borderColor: style.secondaryColor }}
-              >
-                Certifications
-              </h2>
+              <h2 className="text-lg font-semibold pb-1">Certifications</h2>
               <Separator className="h-px mb-4" />
 
               <div className="space-y-2">

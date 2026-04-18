@@ -120,10 +120,10 @@ export default function TemplateClassic({ data }: { data: ResumeData }) {
               <div className="flex flex-wrap gap-2">
                 {data.skills.map((skill) => (
                   <span
-                    key={skill}
+                    key={skill.id}
                     className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
                   >
-                    {skill}
+                    {skill.name}
                   </span>
                 ))}
               </div>
