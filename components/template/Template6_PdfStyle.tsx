@@ -67,7 +67,7 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
   };
 
   return (
-    <div className=" mx-auto bg-white shadow-xl py-6 font-sans">
+    <div className=" mx-auto bg-white py-6 font-sans">
       {/* Header with date range */}
       <div className=" py-4 px-6 text-right text-sm text-gray-500">
         <div className="text-center">
@@ -107,11 +107,9 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
                 <span className="text-gray-600">{personal.location}</span>
               </div>
             )}
-            {/* {personal.linkedin && ( */}
             <div className="flex items-center gap-2">
               <LiaLinkedin style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
               <a
-                // href={personal.linkedin}
                 href={"https://www.linkedin.com/moses-mwangi-tm"}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -138,7 +136,6 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
       </div>
 
       <div className="p-8">
-        {/* Professional Summary */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold tracking-wide pb-1">
             Professional Summary

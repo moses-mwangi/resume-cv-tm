@@ -8,10 +8,14 @@ import {
   User,
   Terminal,
 } from "lucide-react";
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
+import { UseReactToPrintFn } from "react-to-print";
 
 interface TemplateSelectorProps {
   currentTemplate: number;
   onSelect: (templateId: number) => void;
+  onDownload: UseReactToPrintFn;
 }
 
 export const templates = [
@@ -62,10 +66,22 @@ export const templates = [
 export default function TemplateSelector({
   currentTemplate,
   onSelect,
+  onDownload,
 }: TemplateSelectorProps) {
   return (
-    <div className="fixed top-7 right-4 z-50 max-h-[80vh] h-full bg-white rounded-lg shadow-lg border border-gray-200 p-2">
-      <div className="flex flex-col gap-3">
+    <div className="fixed top-7 right-4 z-50 max-h-[80vh] h-full bg-white rounded-lg shadow-lg border border-gray-200">
+      <div className="p-2">
+        <Button
+          onClick={() => {
+            onDownload();
+          }}
+          className="bg-amber-400 cursor-pointer w-full rounded-sm"
+        >
+          DownLoad PDF
+        </Button>
+      </div>
+      <Separator />
+      <div className="flex flex-col gap-3 px-3 py-2">
         {templates.map((template) => {
           const Icon = template.icon;
           const isActive = currentTemplate === template.id;

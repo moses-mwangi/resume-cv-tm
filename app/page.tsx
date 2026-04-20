@@ -58,12 +58,12 @@ export default function Home() {
 
   return (
     <div className=" bg-gray-100 ">
-      <div className="min-h-screen my-8 bg-gray-100 max-w-[980px] mx-auto mb-4 flex justify-between items-center ">
-        {/* // <div className="max-w-4xl mx-auto mb-4 flex justify-between items-center no-print"> */}
+      <div className="min-h-screen my-8 bg-gray-100 max-w-245 mx-auto mb-4 flex justify-between items-center ">
         <div className="">
           <TemplateSelector
             currentTemplate={activeTemplate}
             onSelect={setActiveTemplate}
+            onDownload={handlePrint}
           />
         </div>
 
@@ -73,13 +73,13 @@ export default function Home() {
           getFont={getFont}
         />
 
-        {/* Resume Preview */}
         <div
           ref={printRef}
+          className="print-container"
           style={{
             fontFamily: getFont(currentFont).family,
           }}
-          className="transition-all  duration-300 ease-in-out"
+          // className="transition-all  duration-300 ease-in-out"
         >
           {renderTemplate()}
         </div>

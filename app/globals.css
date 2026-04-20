@@ -129,24 +129,39 @@
   }
 }
 
-/* @media print {
-  body * {
-    visibility: hidden;
+@media print {
+  html,
+  body {
+    width: 210mm; /* A4 width */
+    height: auto;
+    margin: 0;
+    padding: 0;
   }
 
-  .print-area,
-  .print-area * {
-    visibility: visible;
+  /* Prevent layout shifts */
+  * {
+    box-sizing: border-box;
   }
 
-  .print-area {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+  /* Target your resume container */
+  .print-container {
+    /* width: 210mm; */
+    width: 250mm;
+    min-height: 297mm;
+    margin: 0 auto;
   }
 
+  /* Remove flex/grid interference */
+  .min-h-screen {
+    display: block !important;
+  }
+
+  /* Hide UI */
   .no-print {
     display: none !important;
   }
-} */
+  /* @page {
+    size: A4;
+    margin: 0;
+  } */
+}
