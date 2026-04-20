@@ -1,16 +1,6 @@
-// components/templates/Template6_PdfStyle.tsx
-import React, { RefObject } from "react";
+import React from "react";
 import { ResumeData } from "@/app/types";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Globe,
-  // Linkedin,
-  // Github,
-  Briefcase,
-  Calendar,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { LiaLinkedin } from "react-icons/lia";
 import { BsGithub } from "react-icons/bs";
 import { Separator } from "../ui/separator";
@@ -19,51 +9,15 @@ import SkillsPreview from "@/app/SkillsPreview";
 
 interface Template6_PdfStyleProps {
   data: ResumeData;
-  // ref: RefObject<HTMLDivElement | null>;
 }
 
-const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
-  data,
-  // ref,
-}) => {
+const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
   const { personal, experience, education, skills, languages, certifications } =
     data;
 
-  // Helper to format date range if needed
   const formatDate = (start: string, end: string, current?: boolean) => {
     if (current) return `${start} - Present`;
     return `${start} - ${end}`;
-  };
-
-  // Group skills by category as shown in the PDF
-  const skillCategories = [
-    { title: "Frontend", skills: ["React", "NextJs", "Vue", "React Native"] },
-    {
-      title: "Backend",
-      skills: ["NodeJs", "Express", "REST APIs", "Microservices"],
-    },
-    {
-      title: "Databases",
-      skills: ["MongoDB", "Firebase", "SQL", "PostgreSQL"],
-    },
-    {
-      title: "Cloud & DevOps",
-      skills: ["AWS", "Cloud Deployment", "Git", "CI/CD"],
-    },
-    {
-      title: "Programming Language",
-      skills: ["Python", "JavaScript", "TypeScript"],
-    },
-    { title: "Tools & Technologies", skills: ["Docker", "GitHub", "Postman"] },
-  ];
-
-  const templates = {
-    name: "Creative",
-    primaryColor: "#8b5cf6",
-    font: "Plus Jakarta Sans",
-    spacing: "relaxed",
-    layout: "bold",
-    preview: "bg-gradient-to-br from-purple-600 to-pink-600",
   };
 
   return (
@@ -110,7 +64,7 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({
             <div className="flex items-center gap-2">
               <LiaLinkedin style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
               <a
-                href={"https://www.linkedin.com/moses-mwangi-tm"}
+                href={"https://www.linkedin.com/in/moses-mwangi-tm"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-violet-500"

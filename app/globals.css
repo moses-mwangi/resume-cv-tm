@@ -145,8 +145,8 @@
 
   /* Target your resume container */
   .print-container {
-    /* width: 210mm; */
-    width: 250mm;
+    /* width: 250mm; */
+    width: 290mm;
     min-height: 297mm;
     margin: 0 auto;
   }

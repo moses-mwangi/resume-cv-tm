@@ -20,21 +20,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Living Archive — Digital Artifacts & Interfaces",
-    template: "%s | Living Archive",
-  },
+  title: "Moses Mwangi | Full Stack Developer CV",
   description:
-    "A portfolio of digital artifacts, interfaces, and quiet moments. Exploring the poetics of interaction and digital memory.",
+    "Resume of Moses Mwangi, a Full Stack Developer and AI Engineer with experience in building scalable web applications using React, Next.js, Node.js, and cloud technologies.",
   keywords: [
-    "portfolio",
-    "digital artifacts",
-    "UI/UX",
-    "creative developer",
-    "interaction design",
-    "web art",
-    "digital wellness",
-    "interactive narrative",
+    "Moses Mwangi CV",
+    "Full Stack Developer Resume",
+    "AI Engineer Resume",
+    "React Developer CV",
+    "Software Engineer Resume",
   ],
   icons: {
     icon: [
@@ -44,7 +38,6 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
       {
-        // url: "/favicon.ico",
         url: "/triple-m-logo.svg",
         sizes: "32x32",
         type: "image/x-icon",
