@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Moses Mwangi | Full Stack Developer CV",
+  title: "Moses Mwangi — Full Stack Developer CV",
   description:
     "Resume of Moses Mwangi, a Full Stack Developer and AI Engineer with experience in building scalable web applications using React, Next.js, Node.js, and cloud technologies.",
   keywords: [
