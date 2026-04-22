@@ -147,6 +147,7 @@
   .print-container {
     /* width: 250mm; */
     width: 290mm;
+    /* width: 210mm; */
     min-height: 297mm;
     margin: 0 auto;
   }

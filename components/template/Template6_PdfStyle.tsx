@@ -1,11 +1,11 @@
 import React from "react";
-import { ResumeData } from "@/app/types";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { ResumeData } from "@/types/types";
+import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import { LiaLinkedin } from "react-icons/lia";
 import { BsGithub } from "react-icons/bs";
 import { Separator } from "../ui/separator";
-import ProjectsPreview from "./ProjectsPreview";
-import SkillsPreview from "@/app/SkillsPreview";
+import ProjectsPreview from "./views/ProjectsPreview";
+import SkillsPreview from "@/components/template/views/SkillsPreview";
 
 interface Template6_PdfStyleProps {
   data: ResumeData;
@@ -22,7 +22,6 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
 
   return (
     <div className=" mx-auto bg-white py-6 font-sans">
-      {/* Header with date range */}
       <div className=" py-4 px-6 text-right text-sm text-gray-500">
         <div className="text-center">
           <h1 style={{ color: "#8b5cf6" }} className="text-4xl font-bold mb-3 ">
@@ -84,7 +83,17 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
                 GitHub
               </a>
             </div>
-            {/* )} */}
+            <div className="flex items-center gap-2">
+              <Globe style={{ color: "#8b5cf6" }} className="w-4 h-4 " />
+              <a
+                href={"https://moses-tm.vercel.app"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-violet-500"
+              >
+                Portfolio
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -95,16 +104,9 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
             Professional Summary
           </h2>
           <Separator className="mb-3" />
-          <p className="text-sm text-gray-700 leading-relaxed">
-            <span className="text-violet-600 underline">Software Engineer</span>{" "}
-            with a strong foundation in building scalable applications and a
-            growing specialization in AI and agentic systems. Experienced in
-            designing intelligent solutions that leverage machine learning,
-            automation, and modern software architectures. Passionate about
-            developing efficient, user-focused systems and exploring emerging
-            technologies in artificial intelligence to solve real-world
-            problems.
-            {/* {personal?.summary} */}
+          <p className="text-[15px] text-gray-700 leading-relaxed">
+            {/* <span className="text-violet-600 underline">Software Engineer</span> */}
+            {personal?.summary}
           </p>
         </section>
 
@@ -124,15 +126,14 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
                   >
                     {exp.title}
                   </h3>
-                  <span className="text-xs text-gray-500">
-                    {/* {formatDate(exp.startDate, exp.endDate, exp.current)} */}
+                  <span className="text-sm text-gray-500">
                     {formatDate(exp.startDate, exp.endDate)}
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 mb-1">
                   {exp.company} - {exp.location}
                 </p>
-                <ul className="list-disc pl-5 text-sm space-y-1">
+                <ul className="list-disc pl-5 text-[15px] space-y-1">
                   {exp.achievements?.slice(0, 4).map((resp, i) => (
                     <li key={i}>{resp}</li>
                   ))}
@@ -141,11 +142,16 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
             ))}
         </section>
 
+        <ProjectsPreview data={data.projects} />
+
+        <SkillsPreview data={data.skills} />
+
         {/* Education */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold tracking-wide pb-1 ">
             Education
           </h2>
+          <Separator className="mb-4" />
           <div className="flex flex-col gap-4">
             {education &&
               education.map((edu, idx) => (
@@ -157,11 +163,11 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
                     >
                       {edu.institution}
                     </h3>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-[15px] text-gray-500">
                       {edu.startDate} - {edu.endDate}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600">{edu.degree}</p>
+                  <p className="text-[15px] text-gray-600">{edu.degree}</p>
                   {/* {edu.gpa && (
                     <p className="text-sm text-gray-500">GPA: {edu.}</p>
                   )} */}
@@ -170,24 +176,20 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
           </div>
         </section>
 
-        <ProjectsPreview data={data.projects} />
-
-        <SkillsPreview data={data.skills} />
-
         <section>
           {certifications.length > 0 && (
             <div className="mb-6">
               <h2 className="text-lg font-semibold pb-1">Certifications</h2>
-              <Separator className="h-px mb-4" />
+              <Separator className="mb-4" />
 
               <div className="space-y-2">
                 {certifications.map((cert, id) => (
                   <div key={id} className="flex justify-between items-start">
                     <div>
                       <p className="font-medium text-blue-600">{cert.name}</p>
-                      <p className="text-sm text-gray-600">{cert.issuer}</p>
+                      <p className="text-[15px] text-gray-600">{cert.issuer}</p>
                     </div>
-                    <div className="text-right text-sm text-gray-500">
+                    <div className="text-right text-[15px] text-gray-500">
                       {cert.date}
                     </div>
                   </div>
@@ -202,9 +204,9 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
           <h2 className="text-lg font-semibold tracking-wide pb-1">
             Languages
           </h2>
-          <Separator className="h-px mb-4" />
+          <Separator className="mb-4" />
 
-          <div className="flex gap-6 text-sm">
+          <div className="flex gap-6 text-[15px]">
             {languages &&
               languages.map((lang, idx) => (
                 <p key={idx}>

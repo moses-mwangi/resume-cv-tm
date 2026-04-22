@@ -13,7 +13,7 @@ import {
   Briefcase as Linkedin,
   Briefcase as Twitter,
 } from "lucide-react";
-import { ResumeData } from "../../app/types";
+import { ResumeData } from "../../types/types";
 import { RefObject } from "react";
 
 export default function TemplateClassic({ data }: { data: ResumeData }) {

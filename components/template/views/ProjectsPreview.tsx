@@ -1,4 +1,4 @@
-import { Project } from "@/app/types";
+import { Project } from "@/types/types";
 import { Separator } from "@/components/ui/separator";
 // import { ResumeData } from "@/types/resume";
 import React from "react";
@@ -31,9 +31,11 @@ export const resumeTemplates = {
 
 export default function ProjectsPreview({ data }: { data: Project[] }) {
   const style = resumeTemplates["creative"];
+  const projects = data.filter((project) => project.active === true);
+
   return (
     <div>
-      {data.length > 0 && (
+      {projects.length > 0 && (
         <div className="mb-6">
           <h2
             className="text-lg font-semibold pb-1"
@@ -42,7 +44,7 @@ export default function ProjectsPreview({ data }: { data: Project[] }) {
             Projects
           </h2>
           <Separator className="mb-4 pb-px" />
-          {data.map((project) => (
+          {projects.map((project) => (
             <div key={project.id} className="mb-4 ">
               <div className="flex justify-between pb-2 items-start">
                 <h3
@@ -56,7 +58,7 @@ export default function ProjectsPreview({ data }: { data: Project[] }) {
                 </div>
               </div>
 
-              <ul className="list-disc pl-5 text-sm space-y-1">
+              <ul className="list-disc pl-5 text-[15px] space-y-1">
                 {project.description.slice(0, 4).map((resp, i) => (
                   <li key={i}>{resp}</li>
                 ))}

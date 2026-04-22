@@ -10,7 +10,7 @@ import {
   GraduationCap,
   Sparkles,
 } from "lucide-react";
-import { ResumeData } from "../../app/types";
+import { ResumeData } from "../../types/types";
 
 export default function TemplateCreative({ data }: { data: ResumeData }) {
   return (

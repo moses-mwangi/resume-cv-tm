@@ -8,7 +8,7 @@ import {
   MapPin,
   Globe,
 } from "lucide-react";
-import { ResumeData } from "../../app/types";
+import { ResumeData } from "../../types/types";
 
 export default function TemplateMinimal({ data }: { data: ResumeData }) {
   return (

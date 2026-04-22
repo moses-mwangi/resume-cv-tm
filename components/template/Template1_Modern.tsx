@@ -169,7 +169,7 @@ import {
   Building2,
   User2,
 } from "lucide-react";
-import { ResumeData } from "../../app/types";
+import { ResumeData } from "../../types/types";
 import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 export default function TemplateModern({ data }: { data: ResumeData }) {

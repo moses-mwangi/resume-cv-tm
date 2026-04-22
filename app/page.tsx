@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { defaultResumeData } from "./types";
 import TemplateSelector from "@/components/template/TemplateSelector";
 import TemplateClassic from "@/components/template/Template0_Classic";
 import TemplateModern from "@/components/template/Template1_Modern";
@@ -15,6 +14,10 @@ import FontSelector, {
   allFonts,
   FontKey,
 } from "@/components/template/FontSelector";
+import { defaultResumeData } from "@/lib/data/CV-DATA";
+import { juniorResumeData } from "@/lib/data/JuniorResumeData";
+import { midResumeData } from "@/lib/data/midResumeData";
+import { seniorResumeData } from "@/lib/data/seniorResumeData";
 
 export default function Home() {
   const [activeTemplate, setActiveTemplate] = useState(0);
