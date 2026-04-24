@@ -414,6 +414,11 @@ export const defaultResumeData: ResumeData = {
       issuer: "Udemy",
       date: "2024-01",
     },
+    {
+      name: "Artificial Intelligence (ML,DL)",
+      issuer: "Udemy",
+      date: "2024-01",
+    },
   ],
 
   projects: [

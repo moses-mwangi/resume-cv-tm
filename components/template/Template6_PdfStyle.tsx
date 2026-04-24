@@ -222,3 +222,31 @@ const Template6_PdfStyle: React.FC<Template6_PdfStyleProps> = ({ data }) => {
 };
 
 export default Template6_PdfStyle;
+
+// Software Engineer | AI/ML Engineer | Founder @ Kivamall | CEO @ BOMAC Real Estate
+
+// I’m a passionate Software Engineer and AI/ML enthusiast with 3+ years of experience turning ideas into real-world digital products. I thrive at the intersection of engineering, innovation, and entrepreneurship—building solutions that are not just functional, but impactful.
+
+// As the Founder of Kivamall, I’ve built a multi-category e-commerce platform inspired by Alibaba, tailored for local markets. From vendor onboarding and payments to AI-powered product search, I’ve led the architecture and development that keeps the platform scalable and user-friendly.
+
+// I also serve as CEO of BOMAC Real Estate, where I focus on designing smart tools that improve client experiences and empower real estate agents with technology-driven solutions.
+
+// On the technical side, I specialize in full-stack development with JavaScript (TypeScript), React (Next.js), Node.js, Express, MongoDB, PostgreSQL, and Stripe—crafting everything from admin dashboards to real-time systems.
+
+// My curiosity extends deeply into Artificial Intelligence and Machine Learning. Using Python, TensorFlow, PyTorch, and FastAPI, I’ve worked on projects ranging from image classification and predictive analytics to NLP and LLM-powered applications. I stay active in the fast-evolving AI ecosystem, exploring Generative AI, Transformer models, and open-source tools like Hugging Face and LangChain.
+
+// At the core, I love building—whether it’s scaling a product, leading a team, or solving complex problems with data and code. I’m always open to collaborations and opportunities where I can contribute to innovative products at the crossroads of software engineering and AI.
+
+// NLP, LLMs, Computer Vision | Deep Learning |
+
+// Technologies:
+
+//   Frontend: React, Next.js, TypeScript
+
+//   Backend: Node.js, Express/HonoJs, FastAPI, Django
+
+//   Databases: MongoDB, PostgreSQL, MySql
+
+//   AI/ML: Python, TensorFlow, PyTorch, Hugging Face, OpenCV, NLP, LLMs, ML/DL, Computer Vision,  Generative AI, Prompt Engineering
+
+//   DevOps & Tools: Docker, Git, GitHub Actions, CI/CD, REST APIs, GraphQL, Stripe, Data Analysis
